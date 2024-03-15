@@ -108,7 +108,7 @@ public class Idle : State
             stage = EVENT.EXIT;
         }
 
-        else if (Random.Range(0, 100) < 10)
+        else if (Random.Range(0, 50) < 10)
         {
             nextState = new Patrol(npc, agent, anim, player);
             stage = EVENT.EXIT;
@@ -255,6 +255,11 @@ public class Attack : State
         if(!CanAttackPlayer())
         {
             nextState = new Idle(npc, agent, anim, player);
+            stage = EVENT.EXIT;
+        }
+        else if (Random.Range(0, 1000) < 10)
+        {
+            nextState = new Patrol(npc, agent, anim, player);
             stage = EVENT.EXIT;
         }
     }
